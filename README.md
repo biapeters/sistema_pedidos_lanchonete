@@ -1,83 +1,94 @@
-# Sistema de Pedidos Lanchonete
+# Sistema de Gerenciamento de Pedidos (SQL)
 
-## Descrição do Projeto
-Este projeto tem como objetivo implementar um sistema de pedidos para uma lanchonete, com funcionalidades de cadastro de clientes, cardápio, pedidos e entrega, simulando um sistema de delivery. O sistema foi desenvolvido utilizando MySQL para o banco de dados e conta com as seguintes funcionalidades:
+[![SQL](https://img.shields.io/badge/Linguagem-SQL-blue.svg)](https://dev.mysql.com/doc/)
+[![Banco de Dados](https://img.shields.io/badge/Banco%20de%20Dados-Relacional-orange.svg)]()
+[![Status](https://img.shields.io/badge/Status-Concluído-green.svg)]()
+[![Licença](https://img.shields.io/badge/Licença-MIT-lightgrey.svg)](LICENSE)
 
-- **Cadastro de Clientes**: Armazena dados de clientes como nome, telefone, código e endereço.
-- **Cardápio**: Armazena informações dos sanduíches disponíveis para o pedido, incluindo código do item, nome e preço.
-- **Pedidos**: Permite a criação de pedidos com um ou mais itens, informando quantidades e status (em preparação, em entrega ou entregue).
-- **Entregadores**: Realiza o cadastro dos entregadores com nome, telefone e código.
-- **Consultas**: Permite consultar pedidos em preparação.
+## 📝 Descrição do Projeto
 
-## Tecnologias Utilizadas
-- **Banco de Dados**: MySQL
-- **Modelagem de Dados**: BrModelo (Modelo Conceitual)
-- **Ferramenta de Design de Banco**: MySQL Workbench
+Este projeto consiste na criação de um esquema de banco de dados relacional completo para um sistema de gerenciamento de pedidos, com foco em um cenário de serviço de delivery. Ele abrange desde a definição das tabelas e seus relacionamentos até a inserção de dados de exemplo e a realização de consultas básicas.
 
-## Funcionalidades
+O objetivo principal foi aplicar conceitos de modelagem de dados, normalização e integridade referencial para construir uma base de dados robusta e eficiente para uma aplicação transacional.
 
-### Cadastro de Clientes:
-- Nome
-- Telefone
-- Endereço
+## ✨ Funcionalidades e Componentes
 
-### Cadastro de Cardápio:
-- Nome do Sanduíche
-- Preço Unitário
-- Descrição
+* **Criação de Banco de Dados:** Script SQL para criar o banco de dados `sistema_pedidos`.
+* **Definição de Tabelas:**
+    * `Enderecos`: Armazena informações de CEP, UF, município e logradouro.
+    * `Clientes`: Gerencia dados dos clientes, incluindo nome, CPF e vínculo com endereços.
+    * `TelefonesClientes`: Permite múltiplos telefones por cliente.
+    * `EnderecosClientes`: Associa clientes a endereços específicos de residência/entrega, com número e complemento.
+    * `Cardapio`: Lista os produtos disponíveis para pedido, com preço e descrição.
+    * `Pedidos`: Registra os pedidos, associando-os a clientes, endereços de entrega, data, preço total e status.
+    * `ItensPedidos`: Detalha os produtos incluídos em cada pedido, com quantidade e subtotal.
+    * `Entregadores`: Gerencia informações dos entregadores.
+    * `Entregas`: Registra as entregas realizadas, vinculando entregadores e pedidos.
+* **Relacionamentos (Chaves Estrangeiras):** Todas as tabelas são interligadas por chaves estrangeiras, garantindo a integridade e consistência dos dados.
+* **Restrições de Integridade:** Uso de `NOT NULL`, `UNIQUE` e `CHECK` para impor regras de negócio e qualidade dos dados.
+* **Inserção de Dados de Exemplo:** Scripts `INSERT` para popular as tabelas com dados fictícios, facilitando o teste e a compreensão da estrutura.
+* **Consultas Básicas:** Exemplos de comandos `SELECT` para visualizar os dados e filtrar informações, como pedidos com status específico.
 
-### Realização de Pedidos:
-- Cadastro do pedido com o status e os itens selecionados
-- Pedidos podem estar em 3 status: em preparação, em entrega ou entregue
+## 📁 Estrutura do Projeto
 
-### Cadastro de Entregadores:
-- Nome
-- Telefone
-- Código
+O repositório está organizado da seguinte forma:
 
-### Consultas:
-- Consulta para listar pedidos em preparação
+* **`sql/`**: Este diretório contém o script SQL principal para criar o banco de dados e suas tabelas, além de popular com dados de exemplo.
+    * `sistema_pedidos_schema.sql`: O arquivo SQL com todas as instruções DDL (CREATE DATABASE, CREATE TABLE) e DML (INSERT).
+* `README.md`: Este arquivo, que fornece uma visão geral do projeto.
 
-## Estrutura do Banco de Dados
-O banco de dados foi estruturado com as seguintes tabelas:
+## 🚀 Como Utilizar / Configurar o Banco de Dados
 
-- **Clientes**: Armazena os dados dos clientes (nome, telefone, endereço).
-- **Cardápio**: Armazena os sanduíches disponíveis no cardápio (nome, preço, descrição).
-- **Pedidos**: Armazena os pedidos feitos pelos clientes, com o status e dados associados.
-- **ItensPedidos**: Relaciona os pedidos aos itens do cardápio, incluindo quantidades e subtotal.
-- **Entregadores**: Armazena informações dos entregadores (nome, telefone, código).
-- **Entregas**: Registra as entregas realizadas pelos entregadores para cada pedido.
+Para configurar este banco de dados em seu ambiente, siga os passos abaixo:
 
-## Inserção de Dados
+1.  **Pré-requisitos:**
+    * Um sistema de gerenciamento de banco de dados relacional (SGBD) como [MySQL](https://dev.mysql.com/downloads/mysql/) ou [MariaDB](https://mariadb.org/download/).
+    * Um cliente SQL (ex: MySQL Workbench, DBeaver, ou o terminal do MySQL/MariaDB).
 
-O sistema permite a inserção de dados de forma que as integridades referenciais sejam mantidas entre as tabelas. Por exemplo, ao criar um pedido, é necessário inserir dados em Pedidos, ItensPedidos, e Entregas, garantindo que todas as tabelas relacionadas ao pedido sejam atualizadas corretamente.
+2.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/biapeters/seu-repositorio-sql-pedidos.git](https://github.com/biapeters/seu-repositorio-sql-pedidos.git)
+    ```
+    *(**Lembre-se de substituir `seu-repositorio-sql-pedidos` pelo nome real do seu repositório!**)*
 
+3.  **Acesse seu cliente SQL:**
+    Abra seu cliente MySQL/MariaDB preferido e conecte-se ao seu servidor de banco de dados.
 
-```sql
--- Inserir Cliente
-INSERT INTO Clientes (nome, id_endereco, CPF)
-VALUES ('João Silva', 1, '99988877766');
+4.  **Execute o script SQL:**
+    Copie o conteúdo do arquivo `sql/sistema_pedidos_schema.sql` (que é o código que você me enviou) e execute-o em seu cliente SQL. Isso criará o banco de dados, as tabelas, os relacionamentos e inserirá os dados de exemplo.
 
--- Inserir Pedido
-INSERT INTO Pedidos (id_cliente, data_pedido, preco_total, id_endereco_cliente, pedido_status)
-VALUES (1, NOW(), 15.50, 1, '0');
+    Alternativamente, você pode executar o script via linha de comando:
+    ```bash
+    mysql -u seu_usuario -p < sql/sistema_pedidos_schema.sql
+    ```
+    *(Substitua `seu_usuario` pelo seu nome de usuário do MySQL/MariaDB.)*
 
--- Inserir Itens do Pedido
-INSERT INTO ItensPedidos (id_pedido, id_produto, quantidade, preco_unitario, subtotal)
-VALUES (1, 1, 1, 15.50, 15.50);
-```
-## Consultas
+## 🛠️ Tecnologias Utilizadas
 
-É possível consultar os pedidos que estão em preparação no sistema, utilizando o seguinte código SQL:
+* **SQL (Structured Query Language):** Linguagem padrão para gerenciamento de bancos de dados relacionais.
+* **MySQL/MariaDB:** SGBD utilizado para a criação e manipulação do esquema.
+* **Modelagem de Dados:** Conceitos de design de banco de dados.
 
-```sql
-SELECT id_pedido, id_cliente, data_pedido, pedido_status
-FROM Pedidos
-WHERE pedido_status = '0';
-```
+## 🧠 Aprendizados e Desafios
 
-## Como Rodar o Projeto
+Este projeto foi fundamental para aprofundar minha compreensão em:
 
-### Pré-requisitos
-- MySQL instalado e configurado
-- MySQL Workbench para visualização e design do banco de dados (opcional)
+* **Modelagem Relacional:** A capacidade de traduzir requisitos de negócio em um esquema de banco de dados eficiente, definindo entidades, atributos e relacionamentos.
+* **Integridade de Dados:** O uso de chaves primárias, chaves estrangeiras, `NOT NULL` e `UNIQUE` para garantir a consistência e a validade das informações armazenadas.
+* **Consultas SQL:** Prática na escrita de comandos DDL (Data Definition Language) para criar e modificar a estrutura do banco, e DML (Data Manipulation Language) para inserir e consultar dados.
+* **Otimização de Esquema:** Considerações sobre como a estrutura do banco pode impactar o desempenho e a escalabilidade de uma aplicação.
+
+O principal desafio foi garantir que todos os relacionamentos entre as tabelas estivessem corretamente definidos para refletir a lógica de um sistema de pedidos real, evitando redundâncias e garantindo a integridade dos dados.
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Se você tiver sugestões, melhorias ou encontrar algum bug, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+Made with ❤️ by Bianca Peters
+
