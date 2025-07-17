@@ -3,7 +3,6 @@
 [![SQL](https://img.shields.io/badge/Linguagem-SQL-blue.svg)](https://dev.mysql.com/doc/)
 [![Banco de Dados](https://img.shields.io/badge/Banco%20de%20Dados-Relacional-orange.svg)]()
 [![Status](https://img.shields.io/badge/Status-Concluído-green.svg)]()
-[![Licença](https://img.shields.io/badge/Licença-MIT-lightgrey.svg)](LICENSE)
 
 ## 📝 Descrição do Projeto
 
@@ -84,9 +83,6 @@ O principal desafio foi garantir que todos os relacionamentos entre as tabelas e
 
 Contribuições são bem-vindas! Se você tiver sugestões, melhorias ou encontrar algum bug, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-## 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
