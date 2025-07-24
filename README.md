@@ -36,31 +36,6 @@ O repositório está organizado da seguinte forma:
     * `sistema_pedidos_schema.sql`: O arquivo SQL com todas as instruções DDL (CREATE DATABASE, CREATE TABLE) e DML (INSERT).
 * `README.md`: Este arquivo, que fornece uma visão geral do projeto.
 
-## 🚀 Como Utilizar / Configurar o Banco de Dados
-
-Para configurar este banco de dados em seu ambiente, siga os passos abaixo:
-
-1.  **Pré-requisitos:**
-    * Um sistema de gerenciamento de banco de dados relacional (SGBD) como [MySQL](https://dev.mysql.com/downloads/mysql/) ou [MariaDB](https://mariadb.org/download/).
-    * Um cliente SQL (ex: MySQL Workbench, DBeaver, ou o terminal do MySQL/MariaDB).
-
-2.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/biapeters/seu-repositorio-sql-pedidos.git](https://github.com/biapeters/seu-repositorio-sql-pedidos.git)
-    ```
-    *(**Lembre-se de substituir `seu-repositorio-sql-pedidos` pelo nome real do seu repositório!**)*
-
-3.  **Acesse seu cliente SQL:**
-    Abra seu cliente MySQL/MariaDB preferido e conecte-se ao seu servidor de banco de dados.
-
-4.  **Execute o script SQL:**
-    Copie o conteúdo do arquivo `sql/sistema_pedidos_schema.sql` (que é o código que você me enviou) e execute-o em seu cliente SQL. Isso criará o banco de dados, as tabelas, os relacionamentos e inserirá os dados de exemplo.
-
-    Alternativamente, você pode executar o script via linha de comando:
-    ```bash
-    mysql -u seu_usuario -p < sql/sistema_pedidos_schema.sql
-    ```
-    *(Substitua `seu_usuario` pelo seu nome de usuário do MySQL/MariaDB.)*
 
 ## 🛠️ Tecnologias Utilizadas
 
